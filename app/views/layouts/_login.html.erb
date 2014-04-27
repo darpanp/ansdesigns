@@ -1,0 +1,26 @@
+<!-- .box -->
+	<div class="box">
+		<h3>Login</h3>
+		<% unless flash[:error].blank? %>
+		  <ul class="flash_error">
+		  	<li><%= flash[:error] %></li>
+		  </ul>
+		  <br />
+		<% end %>
+		<%= form_tag session_path, :id=>'new_user' do %>
+			<fieldset>
+				<div class="field"><label for="text">Email</label><%= text_field_tag 'username', nil, :class=>'text', :placeholder=>'registered email' %></div>
+				<div class="field"><label for="text">Password</label><%= password_field_tag 'password', nil, :class=>'password', :placeholder=>'registered password' %></div>
+				<div class="wrapper">
+					<%= submit_tag value = "Log In", :class => "submit fleft"%>
+					<div class="fright"><input type="checkbox" name="checkbox" id="checkbox" /><label for="checkbox">Remember</label></div>
+				</div>
+				<br />
+				<div class="wrapper">New Customer? <a style="float: right;" href="<%= new_user_path %>">Register<%= image_tag "user-register-red.png", :id=>'register_img' %></a></div>
+				<br />
+				<div class="wrapper">Forgot password? <a style="float: right;" href="<%= pages_passwordreset_path %>">Reset<%= image_tag "power-red.png", :id=>'power_img' %></a></div>
+			</fieldset>
+		<% end %>
+	</div>
+	<br />
+<!-- /.box -->

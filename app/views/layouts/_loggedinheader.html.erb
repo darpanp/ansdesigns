@@ -1,0 +1,60 @@
+<!-- header -->
+<div id="header">
+	<div class="container">
+<!-- .logo -->
+		<div class="logo">
+			<a href="/"><%= image_tag company_logo %></a>
+		</div>
+<!-- /.logo -->
+		<form action="" id="search-form">
+			<fieldset>
+				<input type="text" class="text" /><input type="submit" value="Search" class="submit" />
+			</fieldset>
+		</form>
+<!-- .nav -->
+		<ul class="nav">
+			<li><a href="#"><span>home</span></a></li>
+			<li><a href="#"><span>payment center</span></a></li>
+			<li><a href="<%= sessions_destroy_path %>"><span>logout</span></a></li>
+		</ul>
+<!-- /.nav -->
+<!-- .extra-box -->
+		<div class="extra-box">
+			<div class="inner">
+				<h2>architectural<span>services for customers</span></h2>
+				<% if @current_user.is_admin? %>
+				<ul>
+					<li><a href="<%= support_manageusers_path %>">Manage Users</a></li>
+					<li><a href="#">Manage Orders</a></li>
+					<li><a href="#">Manage Project</a></li>
+					<li><a href="#">Manage Payments</a></li>
+					<li><a href="#">Message Center</a></li>
+					<li><a href="#">Archive Projects</a></li>
+					<li><a href="#">FAQ</a></li>
+				</ul>
+				<% else %>
+				<ul>
+					<li><a href='<%= users_passwordreset_path %>'>Update Password</a></li>
+					<br />
+					<li><a href="#">New Order</a></li>
+					<li><a href="#">Message Center</a></li>
+					<li><a href="#">Projects Archive</a></li>
+					<li><a href="#">FAQ Zone</a></li>
+				</ul>
+				<% end %>
+			</div>
+		</div>
+<!-- /.extra-box -->
+<!-- .intro-text -->
+		<div class="intro-text">
+			<% if @current_user.is_admin? %>
+				<h1>Welcome Administrator!<span><%= @userfullname %></span></h1>
+			<% else %>
+				<h1>Welcome!<span><%= @userfullname %></span><em><br />Take a <a href="#">quick tour</a></em></h1>
+				<h2>Messages <em>recent</em></h2>
+				No new messages at this time.
+			<% end %>
+		</div>
+<!-- /.intro-text -->
+	</div>
+</div>

@@ -1,0 +1,26 @@
+<!-- content -->
+<div id="content"><div class="ic">More Website Templates at TemplateMonster.com!</div>
+	<div class="container">
+		<div class="wrapper">
+			<div class="aside">
+				&nbsp;
+			</div>
+			<div class="mainContent">
+				<div class="wrapper">
+					<h2>Manage Users <em>add, remove or update user</em></h2>
+					<div>
+						Search user's fullname<br /><%= text_field_tag 'fullname', nil, "data-remote" => true, "data-url" => "/support/findallmatchingusers" %>
+					</div>
+					<br />
+					<div id="currentusers"><%= render 'currentusers' %></div>
+				</div>
+				<br />
+				<div class="wrapper">
+					<h2>Projects <em>archived</em></h2>
+					<p><%= image_tag "img5.jpg" %></p>
+					No projects archived.
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

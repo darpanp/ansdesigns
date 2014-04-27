@@ -1,0 +1,32 @@
+<!-- content -->
+<div id="content"><div class="ic">More Website Templates at TemplateMonster.com!</div>
+	<div class="container">
+		<div class="wrapper">
+			<div class="aside">
+				&nbsp;
+			</div>
+			<div class="mainContent">
+				<h2>Get A Quote <em>retrieve previous or start new</em></h2>
+				<% unless flash[:errorQuote].blank? %>
+		  			<ul class="flash_error">
+		  				<li><%= flash[:errorQuote] %></li>
+		  			</ul>
+		  			<br />
+				<% end %>
+				<p>Already have quote confirmation number? copy and paste below else start a new quote.</p>
+				<%= form_tag pages_quote_path, :id=>'new_user' do |formQuote| %>
+					<div class="field">
+						<%= radio_button_tag 'quote', 'saved' %>&nbsp;&nbsp;&nbsp;<label for="radio">Quote confirmation number: </label>
+						<%= text_field_tag 'confirmation', nil, :class=>'text' %>
+					</div>
+					<div class="field">
+						<%= radio_button_tag 'quote', 'new' %>&nbsp;&nbsp;&nbsp;<label for="radio">Start a new quote </label>
+					</div>
+					<div class="wrapper">
+						<%= submit_tag value = "Continue", :class => "submit"%>
+					</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>

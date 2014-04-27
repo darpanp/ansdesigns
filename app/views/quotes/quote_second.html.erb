@@ -1,0 +1,101 @@
+<!-- content -->
+<div id="content"><div class="ic">More Website Templates at TemplateMonster.com!</div>
+	<div class="container">
+		<div class="wrapper">
+			<div class="aside">
+				&nbsp;
+			</div>
+			<div class="mainContent">
+				<h2>Step 2<em>select work type</em></h2>
+				<% unless flash[:error].blank? %>
+			  		<ul class="flash_error">
+			  			<li><%= flash[:error] %></li>
+			  		</ul>
+				  <br />
+				<% end %>
+				<p>
+					<em>
+						Pricing for design and drafting from sketches or ideas varies depending on the content. Pricing below is for conversion or redlines per sheet.
+					</em>
+				</p>
+				<ul class="quote_info">
+					<li>Low Density drawings contains a small amount of data.</li>
+					<li>Medium Density contains a medium amount of data.</li>
+					<li>High Density contains a large amount of data.</li>
+				</ul>
+				<br />
+				
+				<%= form_tag quotes_quote_second_path, :id => 'new_user' do %>
+					<table border="0" cellspacing="0" cellpadding="0" class="dataTable">
+					    <thead>
+							<tr>
+								<th class="dataTableHeader"></th>
+								<th class="dataTableHeader" style="white-space: nowrap">Drawing Size</th>
+								<th class="dataTableHeader" style="white-space: nowrap">Low Density</th>
+								<th class="dataTableHeader" style="white-space: nowrap">Medium Density</th>
+								<th class="dataTableHeader" style="white-space: nowrap">High Density</th>
+							</tr>
+					    </thead>
+					    <tbody>
+							<tr class="odd_row">
+								<td class="first_col"></td>
+								<td>A-Size (8&#189;" x 11")</td>
+								<td style="white-space: nowrap">$<%= @root.elements["drawing[@size='A']/density/low"].text %>&nbsp;&nbsp;&nbsp;<%= check_box_tag 'A1', nil, false, :class=>'testClass', :name=>'work_type[A1]' %>&nbsp;&nbsp;</td>
+								<td style="white-space: nowrap">$<%= @root.elements["drawing[@size='A']/density/medium"].text %>&nbsp;&nbsp;&nbsp;<%= check_box_tag 'A2', nil, false, :class=>'testClass', :name=>'work_type[A2]' %>&nbsp;&nbsp;</td>
+								<td style="white-space: nowrap">$<%= @root.elements["drawing[@size='A']/density/high"].text %>&nbsp;&nbsp;&nbsp;<%= check_box_tag 'A3', nil, false, :class=>'testClass', :name=>'work_type[A3]' %>&nbsp;&nbsp;</td>
+							</tr>
+							<tr class="even_row">
+								<td class="first_col"></td>
+								<td>B-Size (11" x 17")</td>
+								<td style="white-space: nowrap">$<%= @root.elements["drawing[@size='B']/density/low"].text %>&nbsp;&nbsp;&nbsp;<%= check_box_tag 'B1', nil, false, :class=>'testClass', :name=>'work_type[B1]' %>&nbsp;&nbsp;</td>
+								<td style="white-space: nowrap">$<%= @root.elements["drawing[@size='B']/density/medium"].text %>&nbsp;&nbsp;&nbsp;<%= check_box_tag 'B2', nil, false, :class=>'testClass', :name=>'work_type[B2]' %>&nbsp;&nbsp;</td>
+								<td style="white-space: nowrap">$<%= @root.elements["drawing[@size='B']/density/high"].text %>&nbsp;&nbsp;&nbsp;<%= check_box_tag 'B3', nil, false, :class=>'testClass', :name=>'work_type[B3]' %>&nbsp;&nbsp;</td>
+							</tr>
+							<tr class="odd_row">
+								<td class="first_col"></td>
+								<td>C-Size (18" x 24")</td>
+								<td style="white-space: nowrap">$<%= @root.elements["drawing[@size='C']/density/low"].text %>&nbsp;&nbsp;&nbsp;<%= check_box_tag 'C1', nil, false, :class=>'testClass', :name=>'work_type[C1]' %>&nbsp;&nbsp;</td>
+								<td style="white-space: nowrap">$<%= @root.elements["drawing[@size='C']/density/medium"].text %>&nbsp;<%= check_box_tag 'C2', nil, false, :class=>'testClass', :name=>'work_type[C2]' %>&nbsp;&nbsp;</td>
+								<td style="white-space: nowrap">$<%= @root.elements["drawing[@size='C']/density/high"].text %>&nbsp;<%= check_box_tag 'C3', nil, false, :class=>'testClass', :name=>'work_type[C3]' %>&nbsp;&nbsp;</td>
+							</tr>
+							<tr class="even_row">
+								<td class="first_col"></td>
+								<td>D-Size (24" x 36")</td>
+								<td style="white-space: nowrap">$<%= @root.elements["drawing[@size='D']/density/low"].text %>&nbsp;<%= check_box_tag 'D1', nil, false, :class=>'testClass', :name=>'work_type[D1]' %>&nbsp;&nbsp;</td>
+								<td style="white-space: nowrap">$<%= @root.elements["drawing[@size='D']/density/medium"].text %>&nbsp;<%= check_box_tag 'D2', nil, false, :class=>'testClass', :name=>'work_type[D2]' %>&nbsp;&nbsp;</td>
+								<td style="white-space: nowrap">$<%= @root.elements["drawing[@size='D']/density/high"].text %>&nbsp;<%= check_box_tag 'D3', nil, false, :class=>'testClass', :name=>'work_type[D3]' %>&nbsp;&nbsp;</td>
+							</tr>
+							<tr class="odd_row">
+								<td class="first_col"></td>
+								<td>E-Size (30" x 42")</td>
+								<td style="white-space: nowrap">$<%= @root.elements["drawing[@size='E']/density/low"].text %>&nbsp;<%= check_box_tag 'E1', nil, false, :class=>'testClass', :name=>'work_type[E1]' %>&nbsp;&nbsp;</td>
+								<td style="white-space: nowrap">$<%= @root.elements["drawing[@size='E']/density/medium"].text %>&nbsp;<%= check_box_tag 'E2', nil, false, :class=>'testClass', :name=>'work_type[E2]' %>&nbsp;&nbsp;</td>
+								<td style="white-space: nowrap">$<%= @root.elements["drawing[@size='E']/density/high"].text %>&nbsp;<%= check_box_tag 'E3', nil, false, :class=>'testClass', :name=>'work_type[E3]' %>&nbsp;&nbsp;</td>
+							</tr>
+							<tr class="even_row">
+								<td class="first_col"></td>
+								<td>Red Line Update</td>
+								<td style="white-space: nowrap">$<%= @root.elements["drawing[@size='R']/density/low"].text %>&nbsp;&nbsp;&nbsp;<%= check_box_tag 'RL1', nil, false, :class=>'testClass', :name=>'work_type[RL1]' %>&nbsp;&nbsp;</td>
+								<td style="white-space: nowrap">$<%= @root.elements["drawing[@size='R']/density/medium"].text %>&nbsp;&nbsp;&nbsp;<%= check_box_tag 'RL2', nil, false, :class=>'testClass', :name=>'work_type[RL2]' %>&nbsp;&nbsp;</td>
+								<td style="white-space: nowrap">$<%= @root.elements["drawing[@size='R']/density/high"].text %>&nbsp;&nbsp;&nbsp;<%= check_box_tag 'RL3', nil, false, :class=>'testClass', :name=>'work_type[RL3]' %>&nbsp;&nbsp;</td>
+							</tr>
+						</tbody>
+					    <tfoot>
+						<tr>
+							<td class="dataTableFooter"></td>
+							<td class="dataTableFooter"></td>
+							<td class="dataTableFooter"></td>
+							<td class="dataTableFooter"></td>
+							<td class="dataTableFooter"></td>
+						</tr>
+					    </tfoot>
+					</table>
+					<br />
+					<div class="wrapper">
+						<%= submit_tag value = "Continue", :class => "submit fleft"%>
+					</div>
+				<% end %>	
+			</div>
+		</div>
+	</div>
+</div>

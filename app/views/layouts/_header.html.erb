@@ -1,0 +1,45 @@
+<!-- header -->
+<div id="header">
+	<div class="container">
+		<div id="images">
+			<%= image_tag "header-bg.jpg", :id=>"img1" %>
+			<%= image_tag "b_slogan_big.jpg", :id=>"img2" %>
+		</div>
+<!-- .logo -->
+		<div id="companylogo" class="logo">
+			<a href="/"><%= image_tag "logo-new-color.gif" %></a>
+		</div>
+<!-- /.logo -->
+		<form action="" id="search-form">
+			<fieldset>
+				<input type="text" class="text" /><input type="submit" value="Search" class="submit" />
+			</fieldset>
+		</form>
+<!-- .nav -->
+		<ul class="nav">
+			<li><a href="<%= pages_home_path %>"><span>home</span></a></li>
+			<li><a href="<%= pages_about_path %>"><span>about</span></a></li>
+			<li><a href="<%= pages_contacts_path %>"><span>Contacts</span></a></li>
+		</ul>
+<!-- /.nav -->
+<!-- .extra-box -->
+		<div id="extrabox" class="extra-box">
+			<div class="inner">
+				<h2>architectural<span>services highlights</span></h2>
+				<%= t 'app.header.leftnav', default: 'left navigation' %>
+			</div>
+		</div>
+<!-- /.extra-box -->
+<!-- .intro-text -->
+		<div class="intro-text">
+			<%= t 'app.header.catchline', default: 'Catchline here!!!'%>
+			<br />
+			<% if !(case_condition == 'pages/contacts') %>
+			<div class="wrapper">
+				<a href="/pages/contacts" class="button">Contact Us</a>
+			</div>
+			<% end %>
+		</div>
+<!-- /.intro-text -->
+	</div>
+</div>

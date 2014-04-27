@@ -1,0 +1,1 @@
+*/1	*	*	*	*	PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin && export PATH && cd /home/darpanp/apps/zeinerdsgn/current && bundle exec rake email:send RAILS_ENV=production --trace

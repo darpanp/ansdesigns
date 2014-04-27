@@ -1,0 +1,85 @@
+<!-- content -->
+<div id="content"><div class="ic">More Website Templates at TemplateMonster.com!</div>
+	<div class="container">
+		<div class="wrapper">
+			<div class="aside" style="width: 350px;">
+				<div class="article">
+					<h2>Contact Us<em>for inquiry or suggestion</em></h2>
+					<div class="wrapper">
+						<div class="col-1">
+							<div class="mailto">&nbsp;</div>
+						</div>
+						<div class="col-2" style="position:relative; left:20px; top:7px;">
+							<%= t 'app.contactus.address', default: "A & S"%> <br /><br />
+						</div>
+					</div>
+					<div class="wrapper">
+						<div class="col-1">
+							<div class="phone">&nbsp;</div>
+						</div>
+						<div class="col-2" style="position:relative; left:20px; top:7px;">
+							<%= t 'app.contactus.telephone', default: "(240) 529-6186"%><br />
+						</div>
+					</div>
+					<div class="wrapper">
+						<div class="col-1">
+							<div class="fax">&nbsp;</div>
+						</div>
+						<div class="col-2" style="position:relative; left:20px; top:6px;">
+							<%= t 'app.contactus.fax', default: "(301) 956-2362"%><br />
+						</div>
+					</div>
+					<div class="wrapper">
+						<div class="col-1">
+							<div class="emailto">&nbsp;</div>
+						</div>
+						<div class="col-2" style="position:relative; left:20px; top:6px;">
+							<a href="#"><%= t 'app.contactus.email', default: "ans-designs@codingsherpa.com"%></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="mainContent" style="width: 450px;">
+				<div class="googlemap">
+					<%= t 'app.contactus.googlemap', default: '<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://www.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Gaithersburg,+MD+20879&amp;aq=&amp;sll=37.0625,-95.677068&amp;sspn=39.371738,78.662109&amp;t=v&amp;ie=UTF8&amp;hq=&amp;hnear=Gaithersburg,+Montgomery,+Maryland&amp;ll=39.143441,-77.20137&amp;spn=0.037746,0.076818&amp;z=14&amp;output=embed"></iframe><br /><small><a href="http://www.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Gaithersburg,+MD+20879&amp;aq=&amp;sll=37.0625,-95.677068&amp;sspn=39.371738,78.662109&amp;t=v&amp;ie=UTF8&amp;hq=&amp;hnear=Gaithersburg,+Montgomery,+Maryland&amp;ll=39.143441,-77.20137&amp;spn=0.037746,0.076818&amp;z=14" style="color:#0000FF;text-align:left">View Larger Map</a></small>' %>
+				</div>
+				<h3>Contact Form</h3>
+				<div class="wrapper">
+					<% unless flash[:error].blank? %>
+					  <ul class="flash_error">
+					  	<li><%= flash[:error] %></li>
+					  </ul>
+					  <br />
+					<% end %>
+					<% if @new_contacts.errors.any? %>
+					  <ul class="error">
+					  	<b>Please provide all information below:</b>
+					  	<% @new_contacts.errors.full_messages.each do |msg| %>
+					      <li> <%= msg %></li>
+					    <% end %>
+					  </ul>
+					  <br />
+					<% end %>
+					
+					<%= form_tag pages_contacts_path, :id=>"contacts-form" do %>
+						<fieldset>
+							<div class="field"><label>Your Name:</label><%= text_field_tag 'contactus[name]', nil, :id=>'contactus_name' %></div>
+							<div class="field"><label>Your E-mail:</label><%= text_field_tag 'contactus[email]', nil, :id=>'contactus_email' %></div>
+							<div class="field"><label>Subject:</label><%= text_field_tag 'contactus[subject]', nil, :id=>'contactus_subject' %></div>
+							<div class="field"><label>Message:</label><%= text_area_tag 'contactus[message]', nil, :id=>'contactus_message', :rows=>1, :cols=>1 %></div>
+							<div class="field"><label>Captcha:</label>Click on <%= image_tag "recaptcha.gif" %> button below for a new captcha if existing one is difficult.</div>
+							<br />
+							<div class="field"><%= recaptcha_tags :display => {:theme => 'clean'} %></div>
+							<br />
+							<br />
+							<div class="wrapper">
+								<a href="#" onclick="document.getElementById('contacts-form').submit()" class="button">Send Your Message</a>
+								
+							</div>
+						</fieldset>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

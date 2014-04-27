@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<companyinfo>
+	<company>
+		<logo>logo-new-color.gif</logo>
+		<name font="Tahoma">A&#38;S Designs</name>
+		<service>Design and Drafting Services</service>
+		<address>
+			<mail>
+				<street></street>	
+				<city>Gaithersburg</city>
+				<state>MD</state>
+				<zip>20879</zip>
+			</mail>
+			<phone>
+				<office>(240) 529-6186</office>
+				<fax>(301) 956-2362</fax>
+			</phone>
+			<email>ans-designs@codingsherpa.com</email>
+		</address>
+	</company>
+</companyinfo>

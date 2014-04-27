@@ -1,0 +1,131 @@
+New Tasks for ANSDesigns 5/20/2012:
+- change the underlying database name and app names (wherever necessary) - may not need database at all!
+- Strip out 
+	- the login section
+	- projects page
+	- quote page
+- build the contact us page (note this functionality does not exist in Zeinerdsgn website)
+
+contactus-model Name, email, subject, message, user-ip, user-agent
+need captcha
+need rake to send email
+send email to admin with a daily report of submitted data. -> Use rake task.
+
+
+Remaining tasks:
+- Admin page (3 hours - currently working on this)
+	- Added an AJAX call to database to search for users.
+- need to build a contact us page
+- need to develop message center
+- There is a potential flaw with email address being unique. A hacker registering on the user page might
+be able to get email information. Use captcha to prevent the user from using an automated script to detect
+all emails registered with our site.
+- Also use a way to detect multiple tries. If tries >=5 in a session, lock account for couple of hours. Can be implemented using an
+scheduled task. 
+
+- When user logs in, get all the order id and build the table (still need to work on the design)   
+- Modify the table name from zeiner_prod to ans_dsgn_prod
+- Unit-tests (estimated ~ 80 hours)
+
+Completed Tasks: (Total hours spent so far: 222 hours)
+- setup copycopter to allow externalization of data (8 hours)
+- Fixed edits in QUOTE flow + cleaned up solution to remove send_email controller and reminder_email action + Modified sub-domain name from zdesign to ansdesigns.codingsherpa.com - (2 hours)
+- Fixed logged in company logo, session clean-up when user logs out. Allow change password for logged in user only. (2 hours)
+- send email using a rake task so this works even when app is down. (3 hours)
+- Animation on home page - (4 hours)
+- Add new table Communication - setup quotes to send email after 30 days. integrate Email to quoting flow. (8 hrs)
+- Add favicon (0.5 hour) [This hour has not been added to the total hours]
+- Register user after done with quoting. (ongoing - started April 2nd)[hours spent so far: 16 hours]
+  This may need an extensive design change. Have to follow the New Design proposed below (also look at Evernote for more details).
+  Modify quote flow to use email address.
+  * Create a new branch using GIT (newquote) - C
+  * Delete existing quote table - C
+  * Delete username column from Users table - C
+  * add IsQuote column to Users table - C
+  * Add new table Orders - C
+  * done with modifying User model to be used for both quote and registration flow. is_quote is set for quote flow. - C
+  * email text box needs to be bigger in step 4 page. - C
+  * continue with Step 2 where the order model has to be manipulated. In the final validation - enable password validation - C
+  * completed quote flow. Need to retrieve quote. - C
+  * issue with validation not working for password field. May have to rewire form to use user object - C
+  * issue with quote row being added due to backbutton - this may not be necessary since the user
+	can backbutton upto step 2 and it updated the same row with new work density and total!
+  * do we need temp_pass?? No
+  * reset password flow for users - being worked on - C
+- change login to use email and password. Do not use Username. [ISSUE: The username is not unique. When there are multiple
+entries with the same username, only the first one can login even if the password is different.] Working on this: change 
+username to email field in login page, change email to send email and password, also modify register page. (3 hours) 
+- Modified search box. Added icons for username and password (2 hours)
+- Need to add page for detailed services. Update the ABOUT section with the new information provided. (2 hour)
+- Changed contact info. Removed company name from validates_presence_of and adding a default value of NA. This caused
+  NA to show up on the register page. Removed company columns and added it back again to get rid of NA. (4 hours)
+- Animate homepage and blend images using jQuery (4 hours)
+- Externalized Company Info to XML. - (2 hours)
+- Changed company related artifacts, created new logos. (A&S Designs) - (8 hours)
+- Edit on table when nothing selected. Implemented using flash (1 hour)
+- Develop Quoting Flow in RoR (16 hours)
+- Reading checkbox values - complete (4 hours)
+- Parse XML to display the amount in the form (4 hours)
+- Define a condition for validating Cust ID and Email for Quote model (4 hours)
+- Refactor code to flex title and left navigation (use Helper class to flex the text for register, logged-in and non-logged-in pages) (2 hours)
+- Create mock-ups for Quoting flow (8 hours)
+- Replace the email address with support@codingsherpa.com (support123) once the account is fixed. There was an issue
+  where the email was always sent from darpan@codingsherpa.com. Apparently mailers/email_service had default :from and :return_path
+  defined with this address. Changed the SMTP settings along with the default :from an :return_path fixed the issue. (4 hours)
+- Auto Login after registration. (1 hour)
+- integrate Email into registration flow (8 hours)
+- made changes to PagesController so that users who have NOT logged out can request /pages/xxxx url and still will be taken to 
+  users/CUSTOMER_ID (1 hour)
+- encrypt password - need to add bunch of columns to database to hold encrypted_password and salt. (1 hour)
+  (instead of using before_save filter, override password attribute for Users class to encrypt password - this worked! 
+  Deleted existing password field) - (4 hours)
+- handle email uniqueness in database too. This will give an advantage of maintaining uniqueness when the table is heavily used (2 hour)
+- Generate User Id and start using it for searches and associations. Maybe it might help if we lookup based on email than login id
+  (12-digit Customer Id is generated when a new User is registered. The customer id will also appear instead of the usual 
+  :user/:id in URL) (6 hours)
+- If user closes the browser, they will automatically login when visiting the site (2 hours)
+- Users can login after registration and get to customized homepage. They can logout destroying session. (4 hours)
+- password and email confirmations. email validation regexes. email uniqueness handled in model. (4 hours)
+- Completed validation for registration. (8 hours)
+- Push to production - had issues (took about 3 days to resolve - 24 hours) - in future this will take 4/8 hours max.
+- Completed site with basic pages - look and and feel is consistent with mock-up (16 hours)
+- Create Mockups. (1 week - 30 hours)
+
+OLD DESIGN - Current Design
+0. Quote flow computes customer_id and quote_id and sets few things at first
+1. Remaining flows also sets session variables. 
+2. Everything is fed/updated into the Quote table. 
+3. Last step is to copy from Quote table to Customer table that failed.
+
+CURRENT DESIGN - New Design:
+1. Create entries into customer table and set the Quote column to TRUE. This will eliminate additional requirements 
+around email and cust_id being unique. 
+2. Use customer ID as foreign key to store any quote specific data. Also use Quote ID. Quote ID is present if and 
+only if customer table has QUOTE column SET.
+
+7 Services to highlight
+-----------------------
+1 Architectural Drawings
+2 Permitting Drawings (any county)
+3 Construction Documents/Working Drawings
+4 CADD as Built Drawings
+5 Measured Drawing
+6 Redline drawing
+7 Fabrication Drawing/shop Drawing
+
+Another code for Contact us form
+	<%= form_for @new_contacts, :url=>"contacts" do |userForm| %>
+		<fieldset>
+			<div class="field"><label>Your Name:</label><%= userForm.text_field :name %></div>
+			<div class="field"><label>Your E-mail:</label><%= userForm.text_field :email %></div>
+			<div class="field"><label>Subject:</label><%= userForm.text_field :subject %></div>
+			<div class="field"><label>Message:</label><%= userForm.text_area :message, :rows=>1, :cols=>1 %></div>
+			<div class="field"><label>Captcha:</label></div>
+			<div class="field"><%= recaptcha_tags :display => {:theme => 'clean'} %></div>
+			<br />
+			<div class="wrapper">
+				<a href="#" onclick="document.getElementById('new_contact_us').submit()" class="button">Send Your Message</a>
+				
+			</div>
+		</fieldset>
+	<% end %>

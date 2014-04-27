@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<HTML>
+	<head>
+		<meta charset=utf-8 />
+		<title>You have a saved quote at <%= @company_name %></title>
+		<style type="text/css">
+			h2 {color:maroon;}
+			table tr span {background-color:yellow;}
+		</style>
+	</head>
+	<body>
+		<h2>Dear <%= @fullname %>,</h2>
+		You have a saved quote at <%= @company_name %>.
+		<br />
+		<br />
+		Do you know that you can use the confirmation # below to access the quote flow without having to enter any additional information? You will also get a choice to register with us at the end of the flow?
+		<br />
+		<br />
+		<table>
+			<tr>
+				<td>Confirmation #:</td> 
+				<td><span><%= @order_id %></span></td>
+			</tr>
+		</table>
+		<br />
+		Feel free to visit us anytime at <%= @url %>.
+		<br />
+		<br />
+		Any questions or concern, please don't hesitate to contact us at <%= @support_email %>.
+		<br />
+		<br />
+		Thanks, <br />
+		Support Team <br />
+		<%= @company_name %>
+</body>
+</HTML>

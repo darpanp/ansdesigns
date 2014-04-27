@@ -1,0 +1,62 @@
+<!-- content -->
+<div id="content"><div class="ic">More Website Templates at TemplateMonster.com!</div>
+	<div class="container">
+		<div class="wrapper">
+			<div class="aside">
+				&nbsp;
+			</div>
+			<div class="mainContent">
+				<div class="wrapper">
+					<h2>Register Form</h2>
+					<ul class="quote_info">
+						<li>You will be using the email address provided below to log into our site in future.</li>
+						<li>If you have registered already but don't remember your password, please use this link to <a href="#">reset password</a>.</li>
+					</ul>
+					<br />
+					<% if @user.errors.any? %>
+					  <ul class="error">
+					  	<b>Please fix the errors below:</b>
+					  	<% @user.errors.full_messages.each do |msg| %>
+					      <li> <%= msg %></li>
+					    <% end %>
+					  </ul>
+					  <br />
+					<% end %>
+					
+					<%= form_for @user do |userForm| %>
+						<fieldset>
+							<div class="wrapper">
+							<div class="col-1">	
+								<div class="field">
+									<label for="text">Full Name&nbsp;&nbsp;</label><br /><%= userForm.text_field :fullname, :class=>'text', :placeholder=>'eg. John Doe' %> 
+								</div>
+								<div class="field">
+									<label for="text">Email&nbsp;&nbsp;</label><br /><%= userForm.text_field :email, :class=>'text', :placeholder=>'eg. john@example.com' %>
+								</div>
+								<div class="field">
+									<label for="text">Confirm Email&nbsp;&nbsp;</label><br /><%= userForm.text_field :email_confirmation, :class=>'text', :placeholder=>'confirm email' %>
+								</div>
+							</div>
+							<div class="col-2" style="position:relative; left:50px;">
+								<div class="field">
+									<label for="text">Company (optional)&nbsp;&nbsp;</label><br /><%= userForm.text_field :company, :class=>'text', :placeholder=>'use Personal, Home' %>
+								</div>
+								<div class="field">
+									<label for="text">Password&nbsp;&nbsp;</label><br /><%= userForm.password_field :password, :class=>'password', :placeholder=>'password' %> 
+								</div>
+								<div class="field">
+									<label for="text">Confirm Password&nbsp;&nbsp;</label><br /><%= userForm.password_field :password_confirmation, :class=>'password', :placeholder=>'confirm password' %> 
+								</div>
+								<br />
+								<div class="wrapper">
+									<%= submit_tag value = "Register", :class => "submit fright"%>
+								</div>
+							</div>
+							</div>
+						</fieldset>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

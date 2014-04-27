@@ -1,0 +1,51 @@
+<!-- content -->
+<div id="content"><div class="ic">More Website Templates at TemplateMonster.com!</div>
+	<div class="container">
+		<div class="wrapper">
+			<div class="aside">
+				&nbsp;
+			</div>
+			<div class="mainContent">
+				<h2>Step 3<em>choices</em></h2>
+					<% unless flash[:error].blank? %>
+				  		<ul class="flash_error">
+				  			<li><%= flash[:error] %></li>
+				  		</ul>
+				  	<br />
+					<% end %>
+					<h2><em>
+					<table>
+						<tr>
+							<td width="100px">Price quote :</td>
+							<td>$<%= compute_total_price %></td>
+						</tr>
+						<tr>
+							<td>Service Tax :</td> 
+							<td>$<%= compute_service_tax %></td>
+						</tr>
+						<tr>
+							<td><font color="#006600">Sub-Total :</font></td>
+							<td><b><font color="#006600">$<%= compute_subtotal %></font></b></td>
+						</tr>
+					</table>
+					</em>
+					</h2>
+					<br />
+				<%=form_tag quotes_quote_third_path, :id=>"new_user" do |f| %>
+					<div class="field">
+						<%= radio_button_tag 'quote_choices', 'register' %>&nbsp;&nbsp;&nbsp;<label for="radio">I am satisfied with the quote - lets continue with registration</label>
+					</div>
+					<div class="field">
+						<%= radio_button_tag 'quote_choices', 'save_quote' %>&nbsp;&nbsp;&nbsp;<label for="radio">Oops, I just remembered something urgent, would like to come back later so save it</label>
+					</div>
+					<div class="field">
+						<%= radio_button_tag 'quote_choices', 'reminder' %>&nbsp;&nbsp;&nbsp;<label for="radio">Nah! not interested. Send me a reminder after a month</label>
+					</div>
+					<div class="wrapper">
+						<%= submit_tag value = "Continue", :class => "submit fleft"%>
+					</div>
+				<% end %>	
+			</div>
+		</div>
+	</div>
+</div>

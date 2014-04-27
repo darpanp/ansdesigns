@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<HTML>
+	<head>
+		<meta charset=utf-8 />
+		<title>New message from <%= @fullname %></title>
+		<style type="text/css">
+			h2 {color:maroon;}
+			table tr span {background-color:yellow;}
+		</style>
+	</head>
+	<body>
+		<h2>Hello Admin,</h2>
+		<br />
+		<br />
+		You have a new message from <%= @fullname %>.
+		<br />
+		<br />
+		Following subject and message was submitted. 
+		<br />
+		<br />
+		Please respond to the customer at this email <%= @email %>
+		<br />
+		<table>
+			<tr>
+				<td>Subject:</td> 
+				<td><span><%= @submitted_subject %></span></td>
+			</tr>
+			<tr>
+				<td>Message:</td> 
+				<td><span><%= @submitted_message %></span></td>
+			</tr>
+		</table>
+		<br />
+</body>
+</HTML>

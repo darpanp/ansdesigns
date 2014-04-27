@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<HTML>
+	<head>
+		<meta charset=utf-8 />
+		<title>RE: <%= @submitted_subject %></title>
+		<style type="text/css">
+			h2 {color:maroon;}
+			table tr span {background-color:yellow;}
+		</style>
+	</head>
+	<body>
+		<h2>Hi <%= @fullname %>,</h2>
+		Thank you for visiting <%= @company_name %> website at <%= @url %>. 
+		<br />
+		<br />
+		This is a confirmation of the receipt of the inquiry you placed on our website.
+		<br />
+		<br />
+		We are currently reviewing your request and will be contacting you shortly.
+		<br />
+		<br />
+		Should you have any questions or would like to know more about the services we offer, please don't hesitate to contact us at
+		<br />
+		<table>
+			<tr>
+				<td>Email:</td> 
+				<td><span><%= @support_email %></span></td>
+			</tr>
+			<tr>
+				<td>Phone:</td> 
+				<td><span><%= t 'app.contactus.telephone', default: '(240) 529-6186'%></span></td>
+			</tr>
+		</table>
+		<br />
+		
+		We look forward to working with you.
+		<br />
+		<br />
+		Thanks, <br />
+		Support Team <br />
+		<%= @company_name %>
+</body>
+</HTML>

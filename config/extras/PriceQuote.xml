@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pricequote>
+	<drawing size="A">
+		<density>
+			<low>25</low>
+			<medium>30</medium>
+			<high>50</high>
+		</density>	
+	</drawing>
+	<drawing size="B">
+		<density>
+			<low>35</low>
+			<medium>40</medium>
+			<high>60</high>
+		</density>	
+	</drawing>
+	<drawing size="C">
+		<density>
+			<low>75</low>
+			<medium>120</medium>
+			<high>160</high>
+		</density>	
+	</drawing>
+	<drawing size="D">
+		<density>
+			<low>100</low>
+			<medium>160</medium>
+			<high>220</high>
+		</density>	
+	</drawing>
+	<drawing size="E">
+		<density>
+			<low>160</low>
+			<medium>270</medium>
+			<high>375</high>
+		</density>	
+	</drawing>
+	<drawing size="R">
+		<density>
+			<low>50</low>
+			<medium>50</medium>
+			<high>50</high>
+		</density>	
+	</drawing>
+</pricequote>

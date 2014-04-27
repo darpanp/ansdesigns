@@ -1,0 +1,18 @@
+<!-- content -->
+<div id="content"><div class="ic">More Website Templates at TemplateMonster.com!</div>
+	<div class="container">
+		<div class="wrapper">
+			<%= render 'layouts/categories' %>
+			<div class="mainContent">
+				<div class="article">
+					<h2>About Us<em>and our commitment</em></h2>
+					<div class="img-box">
+						<%= image_tag "img5.jpg" %><h5>At <font face="Tahoma"><%= t 'app.company.name', default: 'A&S Designs' %></font>, we value customer satisfaction</h5>
+						<%= t 'app.aboutus.first.para', default: "first para about us"%>
+					</div>
+					<%= t 'app.aboutus.second.para', default: 'second and third para'%> 
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

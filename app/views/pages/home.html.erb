@@ -1,0 +1,19 @@
+<!-- content -->
+<div id="content"><div class="ic">More Website Templates at TemplateMonster.com!</div>
+	<div class="container">
+		<div class="wrapper">
+			<%= render 'layouts/categories' %>
+			<div class="mainContent">
+				<div class="article">
+					<h2>Welcome<em>To <%= t 'app.company.name', default: 'A&S Designs' %>' web page</em></h2>
+					<p><strong class="txt1"><%= t 'app.company.name', default: 'A&S Designs' %></strong>&nbsp;<%= t 'app.home.first.para', default: 'is interested in building relationships with companies and individuals in need of drafting or design work, on-going contract work or any kind of small or big projects that involve drafting in AutoCAD.'%></p> 
+					<div class="img-box">
+						<%= image_tag "img1.jpg" %>
+						<%= t 'app.home.second.para', default: 'We offer specialized drafting services on any of the above mentioned category. To learn more about our streamlined specialized services, please email or call us. You can also specify services that you are interested in and submit the query by using Contact Us form in "Contacts" page.'%>
+					</div>
+					Please visit these links for more information. <a href="/pages/about">About</a>, <a href="/pages/contacts">Contacts</a>.
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

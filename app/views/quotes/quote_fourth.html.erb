@@ -1,0 +1,36 @@
+<!-- content -->
+<div id="content"><div class="ic">More Website Templates at TemplateMonster.com!</div>
+	<div class="container">
+		<div class="wrapper">
+			<div class="aside">
+				&nbsp;
+			</div>
+			<div class="mainContent">
+				<h2>Step 4<em>finalize deal</em></h2>
+				<% unless flash[:error].blank? %>
+				  	<ul class="flash_error">
+				  		<li><%= flash[:error] %></li>
+				  	</ul>
+				  	<br />
+				<% end %>
+				<% if @quote_choices == 'register' %>
+					<%= form_tag quotes_quote_fourth_path, :id =>'new_user' do %>
+						Thanks for making a decision to sign-up! <br /> <br />
+						Please enter a password to use with the email address below.<br />
+						<br />
+						<div class="field"><label for="text">Email&nbsp;&nbsp;</label><br /><%= text_field_tag 'email', @user.email, :disabled=>true, :size=>'100' %></div>
+						<div class="field"><label for="text">Password&nbsp;&nbsp;&nbsp;</label><br /><%= password_field_tag 'user_password', nil, :class=>'password' %></div>
+						<div class="field"><label for="text">Confirm Password&nbsp;&nbsp;&nbsp;</label><br /><%= password_field_tag 'user_password_confirmation', nil, :class=>'password' %></div>
+						<div class="wrapper">
+							<%= submit_tag value = "Submit", :class => "submit fleft"%>
+						</div>
+						<br />
+					<% end %>
+				<% else %>
+					<%=raw display_confirmation_text %>
+				<% end %>
+
+			</div>
+		</div>
+	</div>
+</div>

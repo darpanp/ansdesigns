@@ -1,0 +1,79 @@
+<!-- content -->
+<div id="content"><div class="ic">More Website Templates at TemplateMonster.com!</div>
+	<div class="container">
+		<div class="wrapper">
+			<div class="aside">
+				&nbsp;
+			</div>
+			<div class="mainContent">
+				<div class="wrapper">
+					<h2>Status <em>ongoing projects</em></h2>
+					<p><%= image_tag "img2.jpg" %></p>
+					<!--<table id="myTable" class="tablesorter"> 
+						<thead> 
+							<tr> 
+							    <th>Project Title</th> 
+							    <th>Projected completion</th>
+							    <th>Percentage</th>
+							    <th>Status</th>
+							    <th>Comments/Notes</th> 
+							</tr> 
+						</thead> 
+						<tbody> 
+							<tr> 
+							    <td>Electrical design blueprint</td>
+							    <td>12/22/2013</td>
+							    <td>0%</td> 
+							    <td>Not Started</td> 
+							    <td>Working on getting details</td> 
+							</tr> 
+							<tr> 
+							    <td>House 2nd floor design</td> 
+							    <td>5/23/2012</td>
+							    <td>70%</td> 
+							    <td>On Progress</td> 
+							    <td>Going as expected</td> 
+							</tr> 
+							<tr> 
+							    <td>Special design work</td> 
+							    <td>8/12/2012</td>
+							    <td>25%</td> 
+							    <td>On Hold</td> 
+							    <td>Need business clarification</td> 
+							</tr> 
+						</tbody> 
+					</table>-->
+					<table id="myTable" class="tablesorter"> 
+						<thead> 
+							<tr> 
+							    <th>Project Title</th> 
+							    <th>Projected completion</th>
+							    <th>Percentage</th>
+							    <th>Status</th>
+							    <th>Comments/Notes</th> 
+							</tr> 
+						</thead> 
+						<tbody> 
+						<!-- Watch out for % vs %= -->
+						<% @orders.each do |order| %>
+							<tr> 
+							    <td><%= order.order_id %></td>
+							    <td></td>
+							    <td>0%</td> 
+							    <td><%= order.order_status %></td> 
+							    <td></td> 
+							</tr> 	
+						<% end %> 
+						</tbody>
+					</table>
+				</div>
+				<br />
+				<div class="wrapper">
+					<h2>Projects <em>archived</em></h2>
+					<p><%= image_tag "img5.jpg" %></p>
+					No projects archived.
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

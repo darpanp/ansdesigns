@@ -1,0 +1,24 @@
+<table id="myTable" class="tablesorter"> 
+	<thead> 
+		<tr> 
+		    <th>Name</th> 
+		    <th>Email</th>
+		    <th>Edit</th>
+		    <th>Delete</th>
+		    <th>Comments/Notes</th> 
+		</tr> 
+	</thead> 
+	<tbody>
+		<% if ! @users.nil? %>
+		<% @users.each do |usr| %>
+		<tr>
+			<td><%= usr.fullname %></td>
+			<td><%= usr.email %></td>
+			<td><a href="#">EDIT</a></td>
+			<td><a href="#">DELETE</a></td>
+			<td><input type="text" /></td>
+		</tr>
+		<% end %>
+		<% end %>
+	</tbody>
+</table>
